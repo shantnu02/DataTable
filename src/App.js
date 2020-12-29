@@ -4,11 +4,9 @@ import "components/FontawsomeIcons";
 import "./App.css";
 import "./dark.css";
 
-import Layout from "pages/_layouts/Home";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+import { BrowserRouter as Router, Switch, Route,useRouteMatch } from "react-router-dom";
 import routes from "routes";
-import PageNotFound from "pages/PageNotFound";
-import Home from "pages/Home";
 import DataTable from "pages/DataTable";
 import Details from "pages/DataTable/Details";
 
@@ -29,12 +27,10 @@ function App() {
                         <Route path="/" exact>
                             <DataTable />
                         </Route>
-                        <Route path="/Details/:id">
-                            <Details />
+                        <Route path="/Details/:id" render={({match})=> <Details userId={match.params.id} />}>
+                           
                         </Route>
-                        <Route>
-                            <PageNotFound />
-                        </Route>
+                        
                     </Switch>
                 </Suspense>
             {/* </Layout> */}
