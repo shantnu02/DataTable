@@ -1,5 +1,8 @@
 import React, { useEffect, useState, useMemo  } from 'react';
-import Header from "components/Header";
+import {useRouteMatch} from "react-router-dom";
+import{BrowserRouter as Router,Switch,useParams, Route,useLocation,Link} from "react-router-dom"
+import { matchPath } from "react-router";
+import DataTable from '.';
 
 function Details() {
     
@@ -18,46 +21,32 @@ function Details() {
 ];
 
     useEffect(()=> {
+         if(!user.length)
+        getData();
+    }, []);
+        
       const getData = () => {
 
         fetch("https://datapeace-storage.s3-us-west-2.amazonaws.com/dummy_data/users.json")
-        .then(res => res.json())
-        .then(
-          (json) => {
-            setUsers(json);
-            console.log(json);
+       .then(response => response.json())
+        .then(json => {
+           const _user = json.filter(user => user.id == props.userId);
+            console.log(props, _user)
+             setUsers(_user.length ? _user[0]:[]);
             
           });
-        }
-    }, []);
-    
-    const usersData = useMemo(() => {
-      let computedUsers = users;
-  // function changeEmployeeData(e){
+        };
+   
+      const { id } = useParams()
+   const match = useRouteMatch('/users/:id')
+ 
 
    },[users]);
       return (
+                 <div >
 
-        <div className="row w-100">
-                <div className="col mb-3 col-12 text-center">
-                    <div className="row">
-                        <div className="col-md-6"></div>
-                        </div>
-                        </div>
-
-       <div>
-         <h1>Details</h1>
-         {/* <tr>
-         <th scope="row" key={user.id}>
-                                        {user.id}
-                                    </th>
-
-         <td>{user.first_name}</td>
-         <td>{user.last_name}</td>
-         <td>{user.age}</td>
-         <td>{user.email}</td> 
-         </tr> */}
-       </div>
+         <text><h1>Details</h1><br/>ID: {user.id}<br/>First Name: {user.first_name}<br/>Last Name: {user.last_name}<br/>Company Name: {user.company_name}<br/>City: {user.city}<br/>State: {user.state}<br/>Zip: {user.zip}<br/>Email: {user.email}<br/>Web: {user.web}<br/>Age: {user.age}<br/></text>
+        
        </div>
         
 
