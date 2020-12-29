@@ -4,7 +4,7 @@ import { TableHeader, Pagination, Search } from "components/DataTable";
 import useFullPageLoader from "hooks/useFullPageLoader";
 // import ExternalInfo from "components/ExternalInfo";
 import AppConfig from "App.config";
-import {BrowserRouter as Router, Route, Switch, Link, Redirect, BrowserRouter} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch, Link, Redirect, BrowserRouter,useLocation} from 'react-router-dom';
 // import Rout from './Rout';
 //  import { Link } from 'react-router';
     
@@ -28,6 +28,10 @@ function DataTable() {
     ];
 
     useEffect(() => {
+        if(!users.length)
+            getData();
+    }, []);
+        
         const getData = () => {
             showLoader();
 
@@ -40,8 +44,7 @@ function DataTable() {
                 });
         };
 
-        getData();
-    }, []);
+      
 
    
 
@@ -74,6 +77,8 @@ function DataTable() {
         );
     }, [users, currentPage, search, sorting]);
     // console.log(this.props)
+      let location = useLocation();
+    
     return (
         <>
             {/* <Header title="Building a data table in react" /> */}
@@ -116,7 +121,7 @@ function DataTable() {
                                     <td>{user.last_name}</td>
                                     <td>{user.age}</td>
                                     <td>{user.email}</td>
-                                    <td><a href={"/Details/"+user.id}>{user.web}</a></td>
+                                    <td><Link to={"/Details/"+user.id}>{user.web}</Link></td>
                                     {/* <button>view</button> */}
                                     
                                 </tr>
