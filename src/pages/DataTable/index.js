@@ -3,7 +3,7 @@ import Header from "components/Header";
 import { TableHeader, Pagination, Search } from "components/DataTable";
 import useFullPageLoader from "hooks/useFullPageLoader";
 // import ExternalInfo from "components/ExternalInfo";
-import AppConfig from "App.config";
+// import AppConfig from "App.config";
 import {BrowserRouter as Router, Route, Switch, Link, Redirect, BrowserRouter,useLocation} from 'react-router-dom';
 // import Rout from './Rout';
 //  import { Link } from 'react-router';
