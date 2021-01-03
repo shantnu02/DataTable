@@ -41,7 +41,7 @@ function Details() {
    const match = useRouteMatch('/users/:id')
  
 
-   },[users]);
+   
       return (
                  <div >
 
