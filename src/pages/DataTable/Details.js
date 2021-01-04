@@ -4,11 +4,13 @@ import{BrowserRouter as Router,Switch,useParams, Route,useLocation,Link} from "r
 import { matchPath } from "react-router";
 import DataTable from '.';
 
-function Details() {
-    
-  const [users, setUsers] = useState([]);
 
-  const ITEMS_PER_PAGE = 10;
+
+function Details(props) {
+ 
+  const [user, setUsers] = useState([]);
+
+  const ITEMS_PER_PAGE = 1;
 
 
   const headers = [
@@ -21,36 +23,35 @@ function Details() {
 ];
 
     useEffect(()=> {
-         if(!user.length)
+     if(!user.length)
         getData();
     }, []);
-        
-      const getData = () => {
 
-        fetch("https://datapeace-storage.s3-us-west-2.amazonaws.com/dummy_data/users.json")
-       .then(response => response.json())
-        .then(json => {
-           const _user = json.filter(user => user.id == props.userId);
-            console.log(props, _user)
-             setUsers(_user.length ? _user[0]:[]);
-            
-          });
+    const getData = () => {
+
+            fetch("https://datapeace-storage.s3-us-west-2.amazonaws.com/dummy_data/users.json")
+                .then(response => response.json())
+                .then(json => {
+                    const _user = json.filter(user => user.id == props.userId);
+                    console.log(props, _user)
+                    setUsers(_user.length ? _user[0]:[]);
+                });
         };
-   
-      const { id } = useParams()
+ 
+   const { id } = useParams()
    const match = useRouteMatch('/users/:id')
  
 
-   
-      return (
-                 <div >
+
+      return ( 
+        <div >
 
          <text><h1>Details</h1><br/>ID: {user.id}<br/>First Name: {user.first_name}<br/>Last Name: {user.last_name}<br/>Company Name: {user.company_name}<br/>City: {user.city}<br/>State: {user.state}<br/>Zip: {user.zip}<br/>Email: {user.email}<br/>Web: {user.web}<br/>Age: {user.age}<br/></text>
-        
-       </div>
-        
+       
+        </div>
 
       );
+
 }
 
  export default Details;
