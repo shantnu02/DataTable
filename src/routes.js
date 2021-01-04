@@ -14,7 +14,7 @@ const HooksDemo = React.lazy(() => import("pages/HooksDemo"));
 const DataTable2 = React.lazy(() => import("pages/DataTable2"));
 const BuiltWithReact = React.lazy(() => import("pages/BuiltWithReact"));
 
-const SearchFilter = React.lazy(() => import("pages/SearchFilter"));
+// const SearchFilter = React.lazy(() => import("pages/SearchFilter"));
 
 const TreeList = React.lazy(() => import("pages/TreeList"));
 
@@ -73,13 +73,13 @@ const routes = [
     navbar: "",
     child: null,
   },
-  {
-    enabled: true,
-    path: "/search-filter",
-    component: SearchFilter,
-    navbar: "Search Filter",
-    child: null,
-  },
+//   {
+//     enabled: true,
+//     path: "/search-filter",
+//     component: SearchFilter,
+//     navbar: "Search Filter",
+//     child: null,
+//   },
   
   {
     enabled: true,
