@@ -1,6 +1,5 @@
 import React from "react";
 
-const GoogleMaps = React.lazy(() => import("pages/GoogleMaps"));
 const ButtonLoadingSpinner = React.lazy(() =>
   import("pages/ButtonLoadingSpinner")
 );
@@ -11,30 +10,11 @@ const DataTable = React.lazy(() => import("pages/DataTable"));
 
 const HooksDemo = React.lazy(() => import("pages/HooksDemo"));
 
-const DataTable2 = React.lazy(() => import("pages/DataTable2"));
+
 const BuiltWithReact = React.lazy(() => import("pages/BuiltWithReact"));
 
-// const SearchFilter = React.lazy(() => import("pages/SearchFilter"));
-
-const TreeList = React.lazy(() => import("pages/TreeList"));
-
-const routes = [
-  {
-    enabled: true,
-    path: "/map",
-    component: GoogleMaps,
-    navbar: "google-map-react",
-    child: [
-      {
-        name: "Basic Google Maps",
-        path: "/map",
-      },
-      {
-        name: "Custom Google Maps",
-        path: "/map/custom-style",
-      },
-    ],
-  },
+const routes = 
+  
   {
     enabled: true,
     path: "/button-loader",
@@ -58,13 +38,7 @@ const routes = [
     child: null,
   },
   
-  {
-    enabled: true,
-    path: "/data-table-large",
-    component: DataTable2,
-    navbar: "",
-    child: null,
-  },
+  
  
   {
     enabled: true,
@@ -73,21 +47,8 @@ const routes = [
     navbar: "",
     child: null,
   },
-//   {
-//     enabled: true,
-//     path: "/search-filter",
-//     component: SearchFilter,
-//     navbar: "Search Filter",
-//     child: null,
-//   },
   
-  {
-    enabled: true,
-    path: "/tree-structure",
-    component: TreeList,
-    navbar: "Tree List",
-    child: null,
-  },
+ 
  
   {
     enabled: true,
