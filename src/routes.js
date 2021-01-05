@@ -27,7 +27,7 @@ const routes =
     enabled: false,
     path: "/hooks-demo",
     component: HooksDemo,
-    navbar: "Custom Hooks demo",
+    navbar: " Hooks demo",
     child: null,
   },
   {
