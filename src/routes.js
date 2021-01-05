@@ -8,9 +8,6 @@ const ReactBasics = React.lazy(() => import("pages/ReactBasics"));
 
 const DataTable = React.lazy(() => import("pages/DataTable"));
 
-const HooksDemo = React.lazy(() => import("pages/HooksDemo"));
-
-
 const BuiltWithReact = React.lazy(() => import("pages/BuiltWithReact"));
 
 const routes = 
@@ -23,13 +20,6 @@ const routes =
     child: null,
   },
 
-  {
-    enabled: false,
-    path: "/hooks-demo",
-    component: HooksDemo,
-    navbar: " Hooks demo",
-    child: null,
-  },
   {
     enabled: true,
     path: "/data-table",
