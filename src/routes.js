@@ -3,7 +3,7 @@ const ButtonLoadingSpinner = React.lazy(() =>
   import("pages/ButtonLoadingSpinner"));
 const ReactBasics = React.lazy(() => import("pages/ReactBasics"));
 const DataTable = React.lazy(() => import("pages/DataTable"));
-const BuiltWithReact = React.lazy(() => import("pages/BuiltWithReact"));
+
 const SearchFilter = React.lazy(() => import("pages/SearchFilter"));
 
 
@@ -25,14 +25,6 @@ const routes = [
     child: null,
   },
  
- 
-  {
-    enabled: true,
-    path: "/built-with-react",
-    component: BuiltWithReact,
-    navbar: "",
-    child: null,
-  },
   {
     enabled: true,
     path: "/search-filter",
